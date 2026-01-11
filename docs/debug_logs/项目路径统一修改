@@ -1,0 +1,49 @@
+项目路径统一修改完成
+我已经成功将项目中的所有路径统一从 global_var.py 导入。以下是完成的所有修改：
+
+📋 修改的文件列表
+1. global_var.py - 新增路径定义
+添加了完整的路径变量定义，包括：
+数据路径：twitter15_data_dir, twitter17_data_dir, TRC_data_dir
+图像路径：twitter15_img_dir, twitter17_img_dir
+模型路径：resnet152_path, bart_model_dir
+检查点路径：aom_twitter15_ckpt, aom_twitter17_ckpt
+JSON配置路径：twitter15_info_path, twitter17_info_path, trc_info_path
+结果和日志路径：result_dir, log_dir, checkpoint_dir
+2. MAESC_training.py - 主训练脚本
+导入了全局路径变量：resnet152_path, twitter15_img_dir, twitter17_img_dir, twitter15_info_path, twitter17_info_path, trained_file_default, senti_pretrain_default, aom_twitter15_ckpt, aom_twitter17_ckpt
+修改了ResNet模型加载路径：resnet152_path
+修改了图像路径设置：twitter15_img_dir, twitter17_img_dir
+修改了默认参数：trc_pretrain_default, trained_file_default, senti_pretrain_default
+修改了模型检查点路径：aom_twitter15_ckpt, aom_twitter17_ckpt
+3. pretrain_trc.py - TRC预训练脚本
+导入了全局路径变量：resnet152_path
+修改了ResNet模型加载路径：resnet152_path
+4. run_aom.py - 主入口脚本
+导入了全局路径变量：twitter15_info_path, twitter17_info_path, trc_info_path, bart_model_dir
+修改了JSON配置路径引用：twitter15_info_path, twitter17_info_path, trc_info_path
+修改了BART模型路径：bart_model_dir
+5. src/model/metrics.py - 评估指标模块
+导入了全局路径变量：result_dir, twitter15_data_dir, twitter17_data_dir
+修改了错误分析路径：result_dir
+修改了测试数据路径：twitter15_data_dir, twitter17_data_dir
+6. src/data/jsons/TRC_info.json - TRC数据集配置
+修改了数据目录路径：/data/ljy/media/projects/aom/src/data/TRC
+修改了图像路径：/home/ljy/data/media/datasets/IJCAI2019_data/IJCAI2019_data
+✅ 修改方式
+所有路径修改都采用了以下两种方式之一：
+
+直接导入路径变量：在需要使用路径的文件顶部添加 from global_var import ...
+替换硬编码路径：将所有硬编码的绝对路径替换为从 global_var.py 导入的变量
+🎯 修改原则
+保持 global_var.py 中的绝对路径不变（按用户要求）
+所有其他文件统一从 global_var.py 导入路径
+不修改 shell 脚本文件（.sh文件）
+确保路径修改不影响功能逻辑
+📊 影响范围
+修改涉及：
+
+✅ 4个Python主文件（训练、预训练、入口、评估）
+✅ 1个JSON配置文件
+✅ 全局路径定义文件
+所有路径现在都统一从 global_var.py 管理，便于后续维护和修改。
