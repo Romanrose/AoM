@@ -1,0 +1,50 @@
+# Large model artifacts and data (keep local only)
+# 过滤 BART 和 Resnet 模型目录
+models/bert-base-cased/
+models/vit-base-patch16-224-in21k/
+src/vlha/models/bert-base-cased/
+src/vlha/models/vit-base-patch16-224-in21k/
+
+# ResNet模型文件 (已移至plm目录)
+plm/resnet/resnet152-b121ed2d.pth
+plm/bart-base/
+
+
+# 过滤锁文件
+*.lock
+
+# 过滤模型权重文件
+*.msgpack
+*.h5
+*.bin
+*.pth
+
+# 过滤隐藏目录/文件
+.claude/
+.github/
+.history/
+.obsidian/
+.vscode/
+.pytest_cache/
+
+# 过滤Python缓存 (所有目录)
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# 过滤指定目录
+15_aesc/
+17_aesc/
+ADAR_15_aesc/
+ADAR_17_aesc/
+aom_twitter15_logs/
+aom_twitter17_logs/
+checkpoints/
+datasets/
+logs/
+train15/
+train17/
+train_trc/
+cache/
+
